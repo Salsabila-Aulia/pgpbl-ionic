@@ -4,9 +4,13 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
+      {
+        path: 'maps',
+        loadChildren: () => import('../maps/maps.module').then(m => m.MapsPageModule)
+      },
       {
         path: 'tab1',
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
